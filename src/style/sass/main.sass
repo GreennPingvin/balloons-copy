@@ -1,0 +1,137 @@
+$color-black: #000
+$color-white: #fff
+$color-gray-dark: #777
+$color-gray-light: #f7f7f7
+
+*, ::before, ::after
+  margin: 0
+  padding: 0
+  box-sizing: border-box
+
+html
+  font-size: 62.5%
+
+.page
+  padding: 5rem
+  font-family: 'Roboto', sans-serif
+  font-weight: 400
+  color: $color-gray-dark
+  font-size: 1.6rem
+  letter-spacing: .2rem
+
+.container
+  background-color: $color-gray-light
+
+
+.header
+  position: relative
+  height: 95vh
+  background: linear-gradient(90.05deg, rgba(186, 133, 84, 0.7) 0.03%, rgba(1, 1, 1, 0.7) 99.94%),url('../../img/main_bg.jpg') center/cover no-repeat
+  color: $color-white
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0 80%)
+  &__logo
+    position: absolute
+    top: 5rem
+    left: 5rem
+    width: 5.6rem
+    height: 7rem
+  &__wrapper
+    position: absolute
+    top: 45%
+    left: 50%
+    text-align: center
+    padding: 0 5rem
+    width: 100%
+    transform: translate(-50%, -50%)
+  &__title
+    font-weight: 800
+    font-size: 5rem
+    line-height: 6rem
+    letter-spacing: 1rem
+  &__primary-title
+    display: block
+    text-transform: uppercase
+    margin-bottom: 1rem
+    animation: lefttToRight 2s ease-in-out .7s
+    animation-fill-mode: backwards
+    backface-visibility: hidden
+  &__secondary-title
+    display: block
+    margin-bottom: 5rem
+    font-weight: 300
+    font-size: 4rem
+    line-height: 4.8rem
+    letter-spacing: .5rem
+    animation: rightToLeft 2s ease-in-out .7s
+    animation-fill-mode: backwards
+    backface-visibility: hidden
+  &__catalogue-btn
+    //empty
+
+.catalogue-btn
+  &:link, &:visited
+    position: relative
+    display: inline-block
+    padding: 1.5rem 4rem
+    font-weight: 600
+    font-size: 2rem
+    line-height: 2.4rem
+    letter-spacing: .5rem
+    color: $color-gray-dark
+    text-transform: uppercase
+    text-decoration: none
+    background-color: $color-white
+    border-radius: 5rem
+    transition:  all .3s
+    &::after
+      content: ""
+      position: absolute
+      top: 0
+      left: 0
+      display: inline-block
+      width: 100%
+      height: 100%
+      background-color: $color-white
+      border-radius: 5rem
+      transition: .5s all
+      z-index: -1
+  &:hover
+    box-shadow: 0px 4px 4px rgba($color-black, 0.3)
+    transform: translateY(-4px)
+    &::after
+      opacity: 0
+      transform: scale(1.5, 1.7)
+  &:active
+    box-shadow: 0px 4px 4px rgba($color-black, 0.1)
+    transform: translateY(-2px)
+  &--animated
+        animation: bottomToTop 1s ease-in-out .7s
+        animation-fill-mode: backwards
+
+@keyframes bottomToTop
+  0%
+    opacity: 0
+    transform: translateY(5rem)
+  100%
+    transform: translateY(0)
+
+
+@keyframes lefttToRight
+  0%
+    opacity: 0
+    transform: translateX(-10rem)
+  80%
+    transform: translateX(2rem)
+  100%
+    opacity: 1
+    transform: translateX(0px)
+
+@keyframes rightToLeft
+  0%
+    opacity: 0
+    transform: translateX(10rem)
+  80%
+    transform: translateX(-2rem)
+  100%
+    opacity: 1
+    transform: translateX(0px)
